@@ -1,0 +1,337 @@
+<div class="animate-rise page-root">
+
+  <!-- HEADER -->
+  <header class="detail-header">
+    <div class="detail-header-inner">
+      <a routerLink="/" class="detail-logo">
+        <span class="bg-gradient-electric shadow-glow detail-logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+        </span>
+        <span>SIMSOFT</span>
+      </a>
+      <nav class="detail-nav">
+        <a routerLink="/" class="detail-nav-link">Accueil</a>
+        <a routerLink="/" fragment="solutions" class="detail-nav-link">Solutions</a>
+        <a routerLink="/" fragment="contact" class="detail-nav-link">Contact</a>
+      </nav>
+      <a routerLink="/" fragment="contact" class="bg-gradient-electric shadow-glow demo-btn">
+        Demander une démo
+      </a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-wrapper">
+    <nav class="breadcrumb">
+      <a routerLink="/" class="breadcrumb-link">Accueil</a>
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      <a routerLink="/" fragment="solutions" class="breadcrumb-link">Solutions</a>
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      <span class="breadcrumb-current">{{ product.name }}</span>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="detail-hero-section">
+    <div [style]="'position:absolute;inset:0;z-index:-1;opacity:0.1;background:linear-gradient(to bottom right,' + getHeroGradient() + ')'"></div>
+    <div class="grid-bg detail-hero-grid-bg"></div>
+    <div class="detail-hero-grid detail-hero-container">
+      <div>
+        <span class="hero-badge">
+          <span class="animate-pulse-glow hero-badge-dot"></span>
+          Solution {{ product.tag }}
+        </span>
+        <h1 class="hero-title">{{ product.name }}</h1>
+        <p class="hero-desc">{{ product.tagline }}</p>
+        <div class="hero-ctas">
+          <a routerLink="/" fragment="contact" class="bg-gradient-electric shadow-glow hero-cta-primary">
+            Demander une démo
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="#features" class="hero-cta-secondary">
+            Voir les fonctionnalités
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-mockup-wrap">
+        <div [style]="'position:absolute;inset:-2rem;z-index:-1;border-radius:3rem;opacity:0.4;filter:blur(3rem);background:linear-gradient(to bottom right,' + getHeroGradient() + ')'"></div>
+        <div class="glass shadow-glow hero-mockup">
+          <div class="hero-mockup-bar">
+            <span class="mockup-dot mockup-dot-red"></span>
+            <span class="mockup-dot mockup-dot-yellow"></span>
+            <span class="mockup-dot mockup-dot-green"></span>
+            <div class="mockup-url">
+              simsoft.cloud / {{ product.slug }}
+            </div>
+          </div>
+          <app-screenshot [kind]="product.screenshots[0].kind" [title]="product.screenshots[0].title" [large]="true" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="overview-section">
+    <div class="overview-grid section-container">
+      <app-reveal>
+        <p class="section-label">Vue d'ensemble</p>
+        <h2 class="overview-title">À propos de {{ product.name }}</h2>
+        <p class="overview-desc">{{ product.overview }}</p>
+      </app-reveal>
+
+      <app-reveal [delay]="80">
+        <div class="overview-card">
+          <h3 class="overview-card-title">Objectifs</h3>
+          <ul class="objectives-list">
+            <li *ngFor="let o of product.objectives" class="objective-item">
+              <span class="bg-gradient-electric objective-check">✓</span>
+              {{ o }}
+            </li>
+          </ul>
+        </div>
+      </app-reveal>
+
+      <app-reveal [delay]="160">
+        <div class="overview-card">
+          <h3 class="overview-card-title">Entreprises cibles</h3>
+          <ul class="targets-list">
+            <li *ngFor="let t of product.targets" class="target-tag">{{ t }}</li>
+          </ul>
+        </div>
+      </app-reveal>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="features-section">
+    <div class="section-container">
+      <app-reveal>
+        <div class="section-header-narrow">
+          <p class="section-label">Fonctionnalités</p>
+          <h2 class="section-title">
+            Tout ce qu'il faut pour <span class="text-gradient">réussir</span>
+          </h2>
+        </div>
+      </app-reveal>
+
+      <div class="features-grid mt-3rem">
+        <app-reveal *ngFor="let f of product.features; let i = index" [delay]="i*50">
+          <div class="feature-card">
+            <span class="bg-gradient-electric shadow-glow feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+            </span>
+            <h3 class="feature-title">{{ f.title }}</h3>
+            <p class="feature-desc">{{ f.desc }}</p>
+          </div>
+        </app-reveal>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section class="screenshots-section">
+    <div class="section-container">
+      <app-reveal>
+        <p class="section-label">Captures d'écran</p>
+        <h2 class="section-title">Aperçu de l'interface</h2>
+      </app-reveal>
+
+      <div class="mt-2-5rem">
+        <div class="carousel-main">
+          <app-screenshot
+            [kind]="product.screenshots[carouselIdx].kind"
+            [title]="product.screenshots[carouselIdx].title"
+            [large]="true"
+            [clickable]="true"
+            (clicked)="openLightbox(carouselIdx)"
+          />
+        </div>
+
+        <div class="carousel-dots">
+          <button *ngFor="let s of product.screenshots; let i = index"
+                  (click)="setCarousel(i)"
+                  [style.width]="i===carouselIdx ? '2rem' : '0.5rem'"
+                  [style.background]="i===carouselIdx ? 'var(--electric)' : 'color-mix(in oklab,var(--muted-foreground) 30%,transparent)'"
+                  class="carousel-dot"
+                  [attr.aria-label]="s.title"></button>
+        </div>
+
+        <div class="screenshots-thumbs mt-1-5rem">
+          <button *ngFor="let s of product.screenshots; let i = index"
+                  (click)="openLightbox(i)"
+                  class="thumb-btn"
+                  [style.border-color]="i===carouselIdx ? 'var(--electric)' : 'var(--border)'">
+            <app-screenshot [kind]="s.kind" [title]="s.title" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div *ngIf="lightbox !== null" (click)="closeLightbox()"
+       class="animate-rise lightbox-overlay">
+    <button (click)="closeLightbox()" class="lightbox-close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      <div class="lightbox-frame">
+        <app-screenshot [kind]="product.screenshots[lightbox].kind" [title]="product.screenshots[lightbox].title" [large]="true" />
+      </div>
+      <p class="lightbox-caption">{{ product.screenshots[lightbox].title }}</p>
+    </div>
+  </div>
+
+  <!-- BENEFITS -->
+  <section class="benefits-section">
+    <div class="section-container">
+      <app-reveal>
+        <p class="section-label">Bénéfices</p>
+        <h2 class="section-title">Un impact mesurable sur votre business</h2>
+      </app-reveal>
+      <div class="benefits-grid mt-3rem">
+        <app-reveal *ngFor="let b of product.benefits; let i = index" [delay]="i*60">
+          <div class="benefit-card">
+            <p class="text-gradient benefit-title">{{ b.title }}</p>
+            <p class="benefit-desc">{{ b.desc }}</p>
+          </div>
+        </app-reveal>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="usecases-section">
+    <div class="section-container">
+      <app-reveal>
+        <p class="section-label">Cas d'usage</p>
+        <h2 class="section-title">Adapté à votre secteur</h2>
+      </app-reveal>
+      <div class="usecases-grid mt-3rem">
+        <app-reveal *ngFor="let u of product.useCases; let i = index" [delay]="i*70">
+          <div class="usecase-card">
+            <span class="usecase-industry">{{ u.industry }}</span>
+            <p class="usecase-scenario">{{ u.scenario }}</p>
+          </div>
+        </app-reveal>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="stats-grid section-container">
+      <app-reveal *ngFor="let s of product.stats">
+        <p class="stat-value">
+          <app-counter [end]="s.value" [suffix]="s.suffix ?? ''" />
+        </p>
+        <p class="stat-label">{{ s.label }}</p>
+      </app-reveal>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="faq-container">
+      <app-reveal>
+        <p class="section-label">FAQ</p>
+        <h2 class="section-title">Questions fréquentes</h2>
+      </app-reveal>
+      <div class="faq-list mt-2-5rem">
+        <div *ngFor="let f of product.faq; let i = index" class="faq-item">
+          <button (click)="toggleFaq(i)" class="faq-btn">
+            {{ f.q }}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 [style.transform]="faqOpen===i ? 'rotate(90deg)' : 'none'"
+                 [style.color]="faqOpen===i ? 'var(--electric)' : ''"
+                 class="faq-chevron">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </button>
+          <div *ngIf="faqOpen===i">
+            <p class="faq-answer">{{ f.a }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED PRODUCTS -->
+  <section class="related-section">
+    <div class="section-container">
+      <app-reveal>
+        <p class="section-label">Solutions associées</p>
+        <h2 class="section-title">Explorer d'autres produits</h2>
+      </app-reveal>
+      <div class="related-grid mt-2-5rem">
+        <a *ngFor="let p of otherProducts" [routerLink]="['/produits', p.slug]" class="related-card">
+          <span class="related-tag">{{ p.tag }}</span>
+          <h3 class="related-name">{{ p.name }}</h3>
+          <p class="related-tagline">{{ p.tagline }}</p>
+          <span class="related-link">
+            Découvrir
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta-section">
+    <div class="final-cta-container">
+      <div class="final-cta-card">
+        <div aria-hidden="true" class="final-cta-glow"></div>
+        <h2 class="final-cta-title">
+          Prêt à déployer {{ product.name }} dans votre entreprise ?
+        </h2>
+        <p class="final-cta-desc">Nos experts vous accompagnent du cadrage à la mise en production.</p>
+        <div class="final-cta-btns">
+          <a routerLink="/" fragment="contact" class="final-cta-btn-primary">
+            Réserver une démonstration
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a routerLink="/" fragment="contact" class="final-cta-btn-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.58 4.42 2 2 0 0 1 3.55 2.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Contacter un expert
+          </a>
+        </div>
+        <div class="final-cta-contacts">
+          <span class="final-cta-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.58 4.42 2 2 0 0 1 3.55 2.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +216 71 000 000
+          </span>
+          <span class="final-cta-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            contact&#64;simsoft.tn
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREV / NEXT -->
+  <section class="prevnext-section">
+    <div class="prevnext-grid section-container">
+      <a *ngIf="prev" [routerLink]="['/produits', prev.slug]" class="prevnext-card">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="prevnext-arrow"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        <div>
+          <p class="prevnext-label">Précédent</p>
+          <p class="prevnext-name">{{ prev.name }}</p>
+        </div>
+      </a>
+      <a *ngIf="next" [routerLink]="['/produits', next.slug]" class="prevnext-card prevnext-card-next">
+        <div>
+          <p class="prevnext-label">Suivant</p>
+          <p class="prevnext-name">{{ next.name }}</p>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="prevnext-arrow"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer class="detail-footer">
+    © {{ currentYear }} SIMSOFT. Tous droits réservés.
+  </footer>
+</div>
