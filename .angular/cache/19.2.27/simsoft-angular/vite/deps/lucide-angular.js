@@ -20,9 +20,9 @@ import {
   ɵɵdirectiveInject,
   ɵɵprojection,
   ɵɵprojectionDef
-} from "./chunk-BX4SRHYA.js";
+} from "./chunk-JZH6HHLA.js";
 
-// ../node_modules/lucide-angular/fesm2020/lucide-angular.mjs
+// node_modules/lucide-angular/fesm2020/lucide-angular.mjs
 var _c0 = ["*"];
 var AArrowDown = [["path", {
   d: "m14 12 4 4 4-4",

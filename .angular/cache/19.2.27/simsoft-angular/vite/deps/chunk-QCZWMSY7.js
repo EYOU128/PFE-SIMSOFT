@@ -60,12 +60,12 @@ import {
   ɵɵinject,
   ɵɵinjectAttribute,
   ɵɵstyleProp
-} from "./chunk-BX4SRHYA.js";
+} from "./chunk-JZH6HHLA.js";
 
-// ../node_modules/@angular/common/fesm2022/dom_tokens-rA0ACyx7.mjs
+// node_modules/@angular/common/fesm2022/dom_tokens-rA0ACyx7.mjs
 var DOCUMENT = new InjectionToken(ngDevMode ? "DocumentToken" : "");
 
-// ../node_modules/@angular/common/fesm2022/location-Dq4mJT-A.mjs
+// node_modules/@angular/common/fesm2022/location-Dq4mJT-A.mjs
 var _DOM = null;
 function getDOM() {
   return _DOM;
@@ -552,7 +552,7 @@ function _stripOrigin(baseHref) {
   return baseHref;
 }
 
-// ../node_modules/@angular/common/fesm2022/common_module-8OBsKodd.mjs
+// node_modules/@angular/common/fesm2022/common_module-8OBsKodd.mjs
 var HashLocationStrategy = class _HashLocationStrategy extends LocationStrategy {
   _platformLocation;
   _baseHref = "";
@@ -2005,20 +2005,20 @@ var NgClass = class _NgClass {
   The NgClass directive uses the custom change detection algorithm for its inputs. The custom
   algorithm is necessary since inputs are represented as complex object or arrays that need to be
   deeply-compared.
-     This algorithm is perf-sensitive since NgClass is used very frequently and its poor performance
+      This algorithm is perf-sensitive since NgClass is used very frequently and its poor performance
   might negatively impact runtime performance of the entire change detection cycle. The design of
   this algorithm is making sure that:
   - there is no unnecessary DOM manipulation (CSS classes are added / removed from the DOM only when
   needed), even if references to bound objects change;
   - there is no memory allocation if nothing changes (even relatively modest memory allocation
   during the change detection cycle can result in GC pauses for some of the CD cycles).
-     The algorithm works by iterating over the set of bound classes, staring with [class] binding and
+      The algorithm works by iterating over the set of bound classes, staring with [class] binding and
   then going over [ngClass] binding. For each CSS class name:
   - check if it was seen before (this information is tracked in the state map) and if its value
   changed;
   - mark it as "touched" - names that are not marked are not present in the latest set of binding
   and we can remove such class name from the internal data structures;
-     After iteration over all the CSS class names we've got data structure with all the information
+      After iteration over all the CSS class names we've got data structure with all the information
   necessary to synchronize changes to the DOM - it is enough to iterate over the state map, flush
   changes to the DOM and reset internal data structures so those are ready for the next change
   detection cycle.
@@ -3660,7 +3660,7 @@ var CommonModule = class _CommonModule {
   }], null, null);
 })();
 
-// ../node_modules/@angular/common/fesm2022/xhr-BfNfxNDv.mjs
+// node_modules/@angular/common/fesm2022/xhr-BfNfxNDv.mjs
 function parseCookieValue(cookieStr, name) {
   name = encodeURIComponent(name);
   for (const cookie of cookieStr.split(";")) {
@@ -3683,7 +3683,7 @@ function isPlatformServer(platformId) {
 var XhrFactory = class {
 };
 
-// ../node_modules/@angular/common/fesm2022/platform_navigation-B45Jeakb.mjs
+// node_modules/@angular/common/fesm2022/platform_navigation-B45Jeakb.mjs
 var PlatformNavigation = class _PlatformNavigation {
   static ɵfac = function PlatformNavigation_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _PlatformNavigation)();
@@ -3704,7 +3704,7 @@ var PlatformNavigation = class _PlatformNavigation {
   }], null, null);
 })();
 
-// ../node_modules/@angular/common/fesm2022/common.mjs
+// node_modules/@angular/common/fesm2022/common.mjs
 function registerLocaleData2(data, localeId, extraData) {
   return registerLocaleData(data, localeId, extraData);
 }
@@ -5156,4 +5156,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-BRIT6XVT.js.map
+//# sourceMappingURL=chunk-QCZWMSY7.js.map
